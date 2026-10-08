@@ -1,0 +1,5 @@
+\subsection*{3. Median Filtering vs. Linear Filtering}
+
+Median filtering is honestly the way to go for salt-and-pepper noise. This kind of noise just flips random pixels to pure black or white, and the median filter fixes it by replacing each pixel with the median of its local window. As long as the noise is less than half the window, the filter basically just ignores those extreme values. Ends up removing the noise completely while keeping edges sharp.
+
+A linear filter like Gaussian blur is not the move here though. It computes a weighted average, so those extreme noise values just get smeared across nearby pixels instead of removed. You end up with faint blotches everywhere plus a blurry image overall. Basically the median filter actually targets the outliers directly, while the linear filter just spreads the noise around instead of dealing with it.

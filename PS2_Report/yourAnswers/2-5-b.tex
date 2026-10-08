@@ -1,0 +1,7 @@
+\subsection*{2. Compression vs. Low-Pass Filtering}
+
+Compression and low-pass filtering both work in the frequency domain but pick their coefficients differently. Compression just ranks everything by magnitude and keeps whatever's strongest, doesn't matter what frequency it's at. Low-pass filtering instead keeps everything inside some fixed radius and zeros out the rest, even if that discarded stuff actually had a lot of energy in it.
+
+Natural images tend to keep their important edge info in the high frequencies. Since compression keeps whatever has the highest magnitude, it ends up preserving those edges anyway. At threshold $0.001$ we only kept $0.1\%$ of the frequencies and the dog was still recognizable, just blocky. Low-pass filtering doesn't care about that though, it just chops high frequencies no matter what. Even at radius $10$, which keeps more coefficients, the cat image ended up so blurred that all the fur texture was basically gone.
+
+So overall: compression adapts to the actual content, so the image stays structurally sharp but gets blocky. Low-pass filtering just grabs a fixed band of frequencies, so the image gets more and more blurry as the radius shrinks.
